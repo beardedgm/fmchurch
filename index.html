@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Home Page Layout</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons (for social media icons, etc.) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Define custom colors from the design */
+        :root {
+            --church-red: #d93a3e; /* Approximated from the image */
+            --church-dark: #222;
+        }
+
+        /* --- Updated Navbar --- */
+        /* Custom button style for the navbar */
+        .btn-church-red {
+            background-color: var(--church-red);
+            color: white;
+            border-color: var(--church-red);
+            font-weight: 600;
+        }
+        .btn-church-red:hover {
+            background-color: #c83033; /* A slightly darker red */
+            color: white;
+            border-color: #c83033;
+        }
+        
+        /* Ensure nav links are white and bold */
+        .navbar .nav-link {
+            color: white;
+            font-weight: 600;
+            margin: 0 0.5rem;
+        }
+        .navbar .nav-link:hover {
+            color: #ddd;
+        }
+
+        /* Style dropdown menu for dark navbar */
+        .navbar .dropdown-menu {
+            background-color: #000; /* Black background for dropdown */
+            border: 1px solid rgba(255,255,255,0.15); /* Subtle border */
+            border-radius: 0.75rem; /* Rounded corners */
+            padding: 0.5rem 0;
+            margin-top: 0.5rem; /* Add some space from the navbar */
+        }
+        .navbar .dropdown-item {
+            color: white; /* White text for dropdown items */
+            padding: 0.5rem 1.5rem; /* More padding */
+        }
+        .navbar .dropdown-item:hover,
+        .navbar .dropdown-item:focus {
+            color: #000; /* Black text on hover */
+            background-color: #f8f9fa; /* Light background on hover */
+        }
+
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background-color: var(--church-dark);
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+            /* The complex slanted image collage in the background 
+               would require advanced custom CSS or an SVG mask. 
+               This is a simplified version. */
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        .hero-section .btn-primary {
+            background-color: white;
+            color: black;
+            border-color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+        }
+        .hero-section .btn-outline-light {
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+        }
+
+        /* --- Icon Grid --- */
+        .icon-grid i {
+            font-size: 3rem;
+            color: var(--church-red);
+        }
+
+        /* --- Feature Section --- */
+        .feature-section {
+            /* The red "swoosh" elements are background graphics 
+               that would be added with CSS ::before/::after pseudo-elements. */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Card Grid --- */
+        .card-grid .card {
+            border: none;
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .card-grid .card-img-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+        .card-grid .card-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--church-red);
+            color: white;
+        }
+        .footer h5 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .footer .list-unstyled li {
+            margin-bottom: 0.5rem;
+        }
+        .footer .list-unstyled a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+        }
+        .footer .list-unstyled a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .footer .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body style="background-color: #fff;"> <!-- Set body background to white so navbar "floats" -->
+
+    <!-- ======== 1. NAVIGATION BAR (Updated "Pill" Design) ======== -->
+    <!-- This outer container centers the "pill" navbar on the page -->
+    <div class="container my-3">
+        <nav class="navbar navbar-expand-lg navbar-dark rounded-pill" style="background-color: #000; padding: 0.5rem 1rem;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <!-- Using a white-text placeholder to match your logo -->
+                    <img src="https://via.placeholder.com/100x40/000000/FFFFFF?text=LOGO" alt="Logo" style="height: 40px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- mx-auto centers the nav links -->
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                About
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAbout">
+                                <li><a class="dropdown-item" href="#">Our Beliefs</a></li>
+                                <li><a class="dropdown-item" href="#">Our Team</a></li>
+                                <li><a class="dropdown-item" href="#">New Here?</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Watch</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMinistries" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ministries
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMinistries">
+                                <li><a class="dropdown-item" href="#">Kids</a></li>
+                                <li><a class="dropdown-item" href="#">Students</a></li>
+                                <li><a class="dropdown-item" href="#">Groups</a></li>
+                                <li><a class="dropdown-item" href="#">Serving</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Get Involved</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Give</a>
+                        </li>
+                    </ul>
+                    <!-- This button will be pushed to the right -->
+                    <div>
+                        <a href="#" class="btn rounded-pill px-4 btn-church-red">Share Jesus</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ======== 2. HERO SECTION ======== -->
+    <section class="hero-section">
+        <div class="container">
+            <!-- The slanted image collage is custom CSS/graphics, not part of standard Bootstrap -->
+            <h1 class="mb-4">church for imperfect people.</h1>
+            <div>
+                <a href="#" class="btn btn-primary btn-lg rounded-pill me-2">NEW HERE?</a>
+                <a href="#" class="btn btn-outline-light btn-lg rounded-pill">PLAN VISIT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 3. ICON GRID ======== -->
+    <section class="icon-grid py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <i class="bi bi-people-fill mb-3"></i>
+                    <h5 class="fw-bold">FIND MY GROUP</h5>
+                    <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <i class="bi bi-calendar-event-fill mb-3"></i>
+                    <h5 class="fw-bold">WHAT'S HAPPENING</h5>
+                    <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <i class="bi bi-heart-fill mb-3"></i>
+                    <h5 class="fw-bold">JOIN THE DREAM TEAM</h5>
+                    <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <i class="bi bi-book-fill mb-3"></i>
+                    <h5 class="fw-bold">LISTEN ONLINE</h5>
+                    <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 4. MISSION STATEMENT ======== -->
+    <section class="py-5">
+        <div class="container text-center">
+            <p class="text-uppercase text-muted mb-2">WE EXIST</p>
+            <h2 class="fw-light" style="font-size: 2.5rem;">to help all people experience<br>new life in Jesus Christ.</h2>
+        </div>
+    </section>
+
+    <!-- ======== 5. FEATURE SECTION (Img Left) ======== -->
+    <section class="feature-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://via.placeholder.com/600x400/CCCCCC/FFFFFF?text=Community" class="img-fluid rounded" alt="Community">
+                </div>
+                <div class="col-md-6 ps-md-5">
+                    <p class="text-uppercase text-muted fw-bold">Partnering in our Community</p>
+                    <h3 class="fw-bold mb-3">New Beginnings Start Here.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque odio eu elementum convallis. Integer finibus, nisl ac aliquet faucibus.</p>
+                    <a href="#" class="btn btn-dark btn-lg rounded-pill">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 6. CARD GRID ("A place for you...") ======== -->
+    <section class="card-grid py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">A place for you and your family.</h2>
+                <p class="lead text-muted">Find community and grow in your faith.</p>
+            </div>
+            
+            <div class="row g-3">
+                <!-- Row 1 -->
+                <div class="col-lg-6">
+                    <div class="card text-white">
+                        <img src="https://via.placeholder.com/600x400/6c757d/FFFFFF?text=Serving" class="card-img" alt="Serving">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">Serving on a Dream Team</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card text-white">
+                        <img src="https://via.placeholder.com/600x400/6c757d/FFFFFF?text=Worship" class="card-img" alt="Worship">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">Join us live for Worship</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="col-lg-4">
+                    <div class="card text-white">
+                        <img src="https://via.placeholder.com/600x400/6c757d/FFFFFF?text=Kids" class="card-img" alt="Kids">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">What we offer for Kids</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-white">
+                        <img src="https://via.placeholder.com/600x400/6c757d/FFFFFF?text=Students" class="card-img" alt="Students">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">Connecting students with Jesus</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card text-white">
+                        <img src="https://via.placeholder.com/600x400/6c757d/FFFFFF?text=Groups" class="card-img" alt="Groups">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">Find your small group</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="col-12">
+                    <div class="card text-white">
+                        <img src="https://via.placeholder.com/1200x400/6c757d/FFFFFF?text=Baptism" class="card-img" alt="Baptism">
+                        <div class="card-img-overlay">
+                            <h4 class="card-title">Ready to take your next step of faith?</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 7. FEATURE SECTION (Img Right) ======== -->
+    <section class="feature-section py-5 my-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 pe-md-5 mb-4 mb-md-0">
+                    <h3 class="fw-bold mb-3">Teaching God's Word as it is, without compromise.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque odio eu elementum convallis. Integer finibus, nisl ac aliquet faucibus.</p>
+                    <a href="#" class="btn btn-dark btn-lg rounded-pill mb-4">Watch Messages</a>
+                    <div>
+                        <!-- Placeholder logos -->
+                        <img src="https://via.placeholder.com/100x40/CCCCCC/FFFFFF?text=Podcast" alt="Podcast" style="height: 30px;" class="me-2">
+                        <img src="https://via.placeholder.com/100x40/CCCCCC/FFFFFF?text=Spotify" alt="Spotify" style="height: 30px;" class="me-2">
+                        <img src="https://via.placeholder.com/100x40/CCCCCC/FFFFFF?text=Apple" alt="Apple" style="height: 30px;" class="me-2">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x400/CCCCCC/FFFFFF?text=Sermon" class="img-fluid rounded" alt="Sermon">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 8. "WHAT'S COMING" (Events) ======== -->
+    <section class="py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">What's Coming:</h2>
+                <a href="#" class="btn btn-dark rounded-pill">View All Events</a>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Event+1" class="card-img-top" alt="Event">
+                        <div class="card-body">
+                            <p class="card-text text-muted small">Feb 16, 2025</p>
+                            <h5 class="card-title fw-bold">Life is If Only</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Event+2" class="card-img-top" alt="Event">
+                        <div class="card-body">
+                            <p class="card-text text-muted small">Feb 23, 2025</p>
+                            <h5 class="card-title fw-bold">Grow in God's Word at Bible School</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300/CCCCCC/FFFFFF?text=Event+3" class="card-img-top" alt="Event">
+                        <div class="card-body">
+                            <p class="card-text text-muted small">Mar 02, 2025</p>
+                            <h5 class="card-title fw-bold">Made in One Hour</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== 9. FOOTER ======== -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-uppercase">Join Us On Sundays.</h5>
+                    <p>9:00 AM | 10:45 AM<br>
+                       1234 Church St.<br>
+                       City, ST 56789</p>
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <h5 class="text-uppercase">About</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Beliefs</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">New Here?</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <h5 class="text-uppercase">Watch</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Messages</a></li>
+                        <li><a href="#">Livestream</a></li>
+                        <li><a href="#">Podcast</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <h5 class="text-uppercase">Ministries</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Kids</a></li>
+                        <lI><a href="#">Students</a></li>
+                        <li><a href="#">Groups</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 text-md-end mb-4">
+                    <img src="https://via.placeholder.com/150/FFFFFF/d93a3e?text=LOGO" alt="Logo" style="height: 50px;" class="mb-3">
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <small>&copy; 2025 Church Name. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+    <!-- This is the "JavaScript" part of the request, which makes 
+         components like the mobile navbar menu work. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
